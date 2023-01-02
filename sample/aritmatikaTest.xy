@@ -1,0 +1,25 @@
+a = 5
+b = 7
+
+print "= Penjumlahan ==============="
+print a + " ditambah " + b + " = " + (a + b)
+
+print " "
+print "= Pengurangan ==============="
+print a + " dikurangi " + b + " = " + (a - b)
+
+print " "
+print "= Perkalian ================="
+print a + " dikali " + b + " = " + (a * b)
+
+print " "
+print "= Pembagian ================="
+print a + " dibagi " + b + " = " + (a / b)
+
+print " "
+print "= Modulus ==================="
+print a + " modulus " + b + " = " + (a % b)
+
+print " "
+print "= Perkalian dan dikurangi ==="
+print a + " dikali " + b + " dikurangi " + a + " = " + (a * b - a)
