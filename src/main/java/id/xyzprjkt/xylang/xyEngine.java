@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
-public class xyLanguage {
+public class xyEngine {
 
     /**
      * ANSI Color Term
@@ -68,12 +68,23 @@ public class xyLanguage {
     @SneakyThrows
     public static void main(String[] args) {
 
+        xyLoader loader = new xyLoader();
+
+        for (int i = 0; i < 100; i++) {
+            loader.animate(i + "");
+            //simulate a piece of task
+            Thread.sleep(10);
+        }
+
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
         System.out.println("===========================");
         System.out.println("xyLang rev1.0-dev");
         System.out.println("Developed by xyzuan");
         System.out.println("===========================");
 
-        xyLanguage main = new xyLanguage();
+        xyEngine main = new xyEngine();
         if (args.length == 0) {
             System.out.println(YELLOW_UNDERLINED + "Realtime mode are under development" + RESET);
             main.execute();

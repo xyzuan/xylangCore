@@ -13,7 +13,7 @@
         <junit.version>5.9.0</junit.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <lombok.version>1.18.24</lombok.version>
-        <main.class>id.xyzprjkt.xylang.xyLanguage</main.class>
+        <main.class>id.xyzprjkt.xylang.xyEngine</main.class>
     </properties>
 
     <dependencies>
