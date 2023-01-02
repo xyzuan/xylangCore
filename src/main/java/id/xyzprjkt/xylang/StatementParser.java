@@ -120,6 +120,9 @@ public class StatementParser {
                 System.out.print("Enter path: ");
                 engine.execute(Path.of(input.nextLine()));
                 break;
+            case "credits":
+                System.out.println("Thanks to alexandermakeev for amazing base code for this project. See https://hackernoon.com/building-your-own-programming-language-from-scratch for more information");
+                break;
             case "help":
                 System.out.println("Documentation [WIP]");
                 System.out.println("= General ==================");
