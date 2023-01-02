@@ -10,11 +10,12 @@ import java.util.Objects;
 @Getter
 public enum Operator {
     Not("!", NotOperator.class, 7),
-    StructureInstance("new", StructureInstanceOperator.class, 7),
-    StructureValue("::", StructureValueOperator.class, 7),
+    ClassInstance("new", ClassInstanceOperator.class, 7),
+    ClassProperty("::", ClassPropertyOperator.class, 7),
 
     Multiplication("*", MultiplicationOperator.class, 6),
     Division("/", DivisionOperator.class, 6),
+    FloorDivision("//", FloorDivisionOperator.class, 6),
     Modulo("%", ModuloOperator.class, 6),
 
     Addition("+", AdditionOperator.class, 5),
@@ -23,7 +24,9 @@ public enum Operator {
     Equals("==", EqualsOperator.class, 4),
     NotEquals("!=", NotEqualsOperator.class, 4),
     LessThan("<", LessThanOperator.class, 4),
+    LessThanOrEqualTo("<=", LessThanOrEqualToOperator.class, 4),
     GreaterThan(">", GreaterThanOperator.class, 4),
+    GreaterThanOrEqualTo(">=", GreaterThanOrEqualToOperator.class, 4),
 
     LeftParen("(", 3),
     RightParen(")", 3),
@@ -31,6 +34,7 @@ public enum Operator {
     LogicalAnd("and", LogicalAndOperator.class, 2),
     LogicalOr("or", LogicalOrOperator.class, 1),
 
+    ArrayAppend("<<", ArrayAppendOperator.class, 0),
     Assignment("=", AssignmentOperator.class, 0);
 
     private final String character;
@@ -48,6 +52,6 @@ public enum Operator {
     }
 
     public boolean greaterThan(Operator o) {
-        return getPrecedence().compareTo(o.getPrecedence()) > 0;
+        return getPrecedence().compareTo(o.getPrecedence()) >= 0;
     }
 }

@@ -1,26 +1,22 @@
 package org.example.toylanguage.expression;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.example.toylanguage.context.MemoryContext;
-import org.example.toylanguage.expression.value.TextValue;
 import org.example.toylanguage.expression.value.Value;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
-public class VariableExpression implements Expression {
+public class VariableExpression implements Expression, AssignExpression {
     private final String name;
 
     @Override
     public Value<?> evaluate() {
-        Value<?> value = MemoryContext.getMemory().get(name);
-        if (value == null) {
-            return new TextValue(name);
-        }
-        return value;
+        return MemoryContext.getScope().get(name);
     }
 
-    public void setValue(Value<?> value) {
-        MemoryContext.getMemory().set(name, value);
+    @Override
+    public void assign(Value<?> value) {
+        MemoryContext.getScope().set(name, value);
     }
 }
