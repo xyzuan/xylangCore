@@ -6,6 +6,13 @@ Based on: [Building Your Own Programming Language From Scratch](https://hackerno
 
 ### [Examples .xy Codes](sample)
 
+## How to Compile
+```
+# Make sure your environtment have a Maven installed
+mvn package
+mvn compile
+```
+
 ## Syntax Usages
 
 ### Operators
