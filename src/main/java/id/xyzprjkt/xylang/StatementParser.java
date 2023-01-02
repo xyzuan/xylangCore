@@ -6,7 +6,10 @@ import id.xyzprjkt.xylang.context.definition.DefinitionScope;
 import id.xyzprjkt.xylang.context.definition.FunctionDefinition;
 import id.xyzprjkt.xylang.exception.SyntaxException;
 import id.xyzprjkt.xylang.expression.Expression;
+import id.xyzprjkt.xylang.expression.ExpressionReader;
 import id.xyzprjkt.xylang.expression.VariableExpression;
+import id.xyzprjkt.xylang.expression.operator.OperatorExpression;
+import id.xyzprjkt.xylang.expression.value.LogicalValue;
 import id.xyzprjkt.xylang.statement.*;
 import id.xyzprjkt.xylang.statement.loop.*;
 import id.xyzprjkt.xylang.token.Token;
@@ -14,11 +17,6 @@ import id.xyzprjkt.xylang.token.TokenType;
 import id.xyzprjkt.xylang.token.TokensStack;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import id.xyzprjkt.xylang.expression.ExpressionReader;
-import id.xyzprjkt.xylang.expression.operator.OperatorExpression;
-import id.xyzprjkt.xylang.expression.value.LogicalValue;
-import id.xyzprjkt.xylang.statement.*;
-import id.xyzprjkt.xylang.statement.loop.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,6 +110,17 @@ public class StatementParser {
                 break;
             case "next":
                 parseNextStatement();
+                break;
+            case "help":
+                System.out.println("Documentation [WIP]");
+                System.out.println("= General ==================");
+                System.out.println("- help: Are used to see documentation usage");
+                System.out.println("- version: To see xyzlang version which installed on this machine");
+                System.out.println("= Operation ===============");
+                System.out.println("- ");
+                break;
+            case "version":
+                System.out.println("xyLang version 1.0-dev (xylang-1.0-dev-jar)");
                 break;
             default:
                 throw new SyntaxException(String.format("Failed to parse a keyword: %s", token.getValue()));

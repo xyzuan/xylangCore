@@ -6,10 +6,9 @@ import id.xyzprjkt.xylang.statement.CompositeStatement;
 import id.xyzprjkt.xylang.token.Token;
 import lombok.SneakyThrows;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class xyLanguage {
@@ -30,14 +29,13 @@ public class xyLanguage {
                 CompositeStatement statement = new CompositeStatement();
                 StatementParser.parse(tokens, statement);
                 statement.execute();
-            } finally {
-
-            }
+            } finally {}
         } while (!exit);
     }
 
+    @SneakyThrows
     public void execute(Path params) {
-        String sources = params.toString();
+        String sources = Files.readString(params);
         LexicalParser lexicalParser = new LexicalParser(sources);
         List<Token> tokens = lexicalParser.parse();
 
@@ -53,6 +51,7 @@ public class xyLanguage {
         }
     }
 
+    @SneakyThrows
     public static void main(String[] args) {
 
         System.out.println("===========================");
@@ -61,11 +60,16 @@ public class xyLanguage {
         System.out.println("===========================");
 
         xyLanguage main = new xyLanguage();
-        if (Arrays.stream(args).allMatch(Objects::nonNull)) {
+        if (args.length == 0) {
             System.err.println("Realtime mode are under development");
             main.execute();
         } else {
-            main.execute(Path.of(args[0]));
+            int index = args[0].lastIndexOf('.');
+            if(args[0].substring(index + 1).equals("xy")) {
+                main.execute(Path.of(args[0]));
+            } else {
+                System.out.println("Only compatible with .xy file");
+            }
         }
     }
 }
