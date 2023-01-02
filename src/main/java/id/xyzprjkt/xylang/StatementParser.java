@@ -117,6 +117,7 @@ public class StatementParser {
                 parseNextStatement();
                 break;
             case "execute":
+                System.out.print("Enter path: ");
                 engine.execute(Path.of(input.nextLine()));
                 break;
             case "help":

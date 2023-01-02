@@ -33,7 +33,7 @@ public class xyEngine {
 
         do {
             LocalDateTime now = LocalDateTime.now();
-            System.out.printf(GREEN_BOLD + "[%s]" + WHITE_BOLD + " xyLang>> ", dtf.format(now));
+            System.out.printf(GREEN_BOLD + "[%s]" + WHITE_BOLD + " xylang>> " + RESET, dtf.format(now));
             LexicalParser lexicalParser = new LexicalParser(userInput.nextLine());
             List<Token> tokens = lexicalParser.parse();
 
@@ -79,17 +79,17 @@ public class xyEngine {
 
         for (int i = 0; i < 100; i++) {
             loader.animate(i + "");
-            //simulate a piece of task
             Thread.sleep(10);
         }
 
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
-        System.out.println("===========================");
-        System.out.println("xyLang rev1.0-dev");
+        System.out.println("");
+        System.out.println("xylang rev1.0-dev (tags/main, Jan 3 2023, 00:04:04) [OpenJDK 19.0.1_10-21]");
         System.out.println("Developed by xyzuan");
-        System.out.println("===========================");
+        System.out.println("Type \"help\", \"credits\", or \"version\" for more information.");
+        System.out.println("");
 
         xyEngine main = new xyEngine();
         if (args.length == 0) {
