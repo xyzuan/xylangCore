@@ -49,19 +49,26 @@ public class xyEngine {
 
     @SneakyThrows
     public void execute(Path params) {
-        String sources = Files.readString(params);
-        LexicalParser lexicalParser = new LexicalParser(sources);
-        List<Token> tokens = lexicalParser.parse();
 
-        DefinitionContext.pushScope(DefinitionContext.newScope());
-        MemoryContext.pushScope(MemoryContext.newScope());
-        try {
-            CompositeStatement statement = new CompositeStatement();
-            StatementParser.parse(tokens, statement);
-            statement.execute();
-        } finally {
-            DefinitionContext.endScope();
-            MemoryContext.endScope();
+        int index = params.toString().lastIndexOf('.');
+        if(params.toString().substring(index + 1).equals("xy")) {
+            String sources = Files.readString(params);
+
+            LexicalParser lexicalParser = new LexicalParser(sources);
+            List<Token> tokens = lexicalParser.parse();
+
+            DefinitionContext.pushScope(DefinitionContext.newScope());
+            MemoryContext.pushScope(MemoryContext.newScope());
+            try {
+                CompositeStatement statement = new CompositeStatement();
+                StatementParser.parse(tokens, statement);
+                statement.execute();
+            } finally {
+                DefinitionContext.endScope();
+                MemoryContext.endScope();
+            }
+        } else {
+            System.out.println("Only compatible with .xy file");
         }
     }
 
@@ -89,12 +96,7 @@ public class xyEngine {
             System.out.println(YELLOW_UNDERLINED + "Realtime mode are under development" + RESET);
             main.execute();
         } else {
-            int index = args[0].lastIndexOf('.');
-            if(args[0].substring(index + 1).equals("xy")) {
-                main.execute(Path.of(args[0]));
-            } else {
-                System.out.println("Only compatible with .xy file");
-            }
+            main.execute(Path.of(args[0]));
         }
     }
 }

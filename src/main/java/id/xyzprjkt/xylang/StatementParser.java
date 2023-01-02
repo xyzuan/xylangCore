@@ -15,9 +15,11 @@ import id.xyzprjkt.xylang.statement.loop.*;
 import id.xyzprjkt.xylang.token.Token;
 import id.xyzprjkt.xylang.token.TokenType;
 import id.xyzprjkt.xylang.token.TokensStack;
+import id.xyzprjkt.xylang.xyEngine;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,6 +27,9 @@ import java.util.Scanner;
 @RequiredArgsConstructor
 @Getter
 public class StatementParser {
+
+    xyEngine engine = new xyEngine();
+    Scanner input = new Scanner(System.in);
     private final TokensStack tokens;
     private final Scanner scanner;
     private final CompositeStatement compositeStatement;
@@ -110,6 +115,9 @@ public class StatementParser {
                 break;
             case "next":
                 parseNextStatement();
+                break;
+            case "execute":
+                engine.execute(Path.of(input.nextLine()));
                 break;
             case "help":
                 System.out.println("Documentation [WIP]");
