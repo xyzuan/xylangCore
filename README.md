@@ -1,23 +1,60 @@
-# Toy language
+# xyLang
 
-![Toy language](asset/language-schema.png)
+This is a xyLang Simple Programing Languages written in Java, xyLang uses .xy as the filename extentions.
 
-This is a simple toy language implementation. More details: [Building Your Own Programming Language From Scratch](https://hackernoon.com/building-your-own-programming-language-from-scratch)
+Based on: [Building Your Own Programming Language From Scratch](https://hackernoon.com/building-your-own-programming-language-from-scratch)
 
-### [Examples](src/test/resources)
+### [Examples .xy Codes](sample)
 
-## Syntax
+## Syntax Usages
+
+### Operators
+
+To calculate a complex expression in the proper order, each of the supported operators has its own precedence:
+
+| Operator               | Value | Precedence | Example                  |
+| ---------------------- | ----- | ---------- | ------------------------ |
+| Assignment             | `=`   | 1          | `a = 5`                  |
+| Append value to array  | `<<`  | 1          | `array << "value"`       |
+| Logical OR             | `or`  | 2          | `true or false`          |
+| Logical AND            | `and` | 3          | `true and true`          |
+| Left Paren             | `(`   | 4          |                          |
+| Right Paren            | `)`   | 4          |                          |
+| Equals                 | `==`  | 5          | `a == 5`                 |
+| Not Equals             | `!=`  | 5          | `a != 5`                 |
+| Greater Than Or Equals | `>=`  | 5          | `a >= 5`                 |
+| Greater Than           | `>`   | 5          | `a > 5`                  |
+| Less Than Or Equals    | `<=`  | 5          | `a <= 5`                 |
+| Less Than              | `<`   | 5          | `a < 5`                  |
+| Addition               | `+`   | 6          | `a + 5`                  |
+| Subtraction            | `-`   | 6          | `a - 5`                  |
+| Multiplication         | `*`   | 7          | `a * 5`                  |
+| Division               | `/`   | 7          | `a / 5`                  |
+| Floor Division         | `//`  | 7          | `a // 5`                 |
+| Modulo                 | `%`   | 7          | `a % 5`                  |
+| NOT                    | `!`   | 8          | `!false`                 |
+| Class Instance         | `new` | 8          | `a = new TreeNode [ 5 ]` |
+| Class Property         | `::`  | 8          | `b = a :: value`         |
+
+### General Functions
+To show a general output :
+| Commands               | Function                                                      |
+| ---------------------- | ------------------------------------------------------------- |
+| help                   | Used to see documentation and usages                          |
+| version                | Used to see xyLang version are installed on this machine      |
 
 ### Basic constructions
+
 1. Variables declaration
+
 ```
-# plain types
+# Plain types
 <variable name> = <expression>
 
-a1 = 123
-a2 = "hello world"
+a = 1
+b = "hello world"
 
-# class instance
+# Class instance
 <variable name> = new <class name> [ <argument expression 1>, <argument expression 2>, ... ]
 
 left_tree_node = new TreeNode [ 1 ]
@@ -25,44 +62,48 @@ right_tree_node = new TreeNode [ 2 ]
 tree_node = new TreeNode [ 3, left_tree_node, right_tree_node ]
 tree_node = new TreeNode [ 3, new TreeNode [ 1 ], null ]
 
-# array
+# Arrays
 <array> = { <value1>, <value2>, ... }
 example_array = { 1, 2, "three", new TreeNode [ 4 ] }
 empty_array = {}
 ```
 
 2. Conditions
+
 ```
 if <condition>
-    # statements
+    # Block Statement
 elif <condition>
-    # statements
+    # Block Statement
 else
-    # statements
+    # Block Statement
 end
 
-if a1 > 5 and tree_node :: value == 3
-    # statements
-elif a2 == "hello" or a3 == "world"
-    # statements
+if a > 5 and tree_node :: value == 3
+    # Block Statement
+elif b == "hello" or c == "world"
+    # Block Statement
 else
-    # statements
-end  
+    # Block Statement
+end
 ```
 
 3. Print to console
+
 ```
 print <expression>
-print a1 + a2 + tree_node :: value
+print a + b + tree_node :: value
 ```
 
 4. Input from console
+
 ```
 input <variable name>
 input number
 ```
 
 5. Functions
+
 ```
 fun <function name> [ <argument1, argument2>, ... ]
     <body>
@@ -78,6 +119,7 @@ end
 ```
 
 6. Loops
+
 ```
 # For loop
 loop <variable> in <lower_bound>..<upper_bound>
@@ -116,8 +158,11 @@ end
 ```
 
 ### Data types
+
 There are the following data types currently supported:
+
 1. Numeric
+
 ```
 number1 = 1
 number2 = 2.
@@ -128,22 +173,25 @@ number6 = -1
 ```
 
 2. Text
+
 ```
 text = "hello world"
 ```
 
 3. Logical
+
 ```
 logical1 = true
 logical2 = false
 ```
 
 4. Class
+
 ```
 class <class name> [ <property1>, <property2>, ...  ]
     # inner statements
     print <property1>
-    
+
     fun <function name> [ <property1>, <property2> ]
         # function statements
         this :: <property1> = <property1>
@@ -175,6 +223,7 @@ lamp_instance :: turn_off []
 ```
 
 5. Arrays
+
 ```
 <array> = { <value1>, <value2>, ... }
 example_array = { 1, 2, "three", new TreeNode [ 4 ] }
@@ -195,33 +244,7 @@ items << 3  #{1,2,3}
 ```
 
 6. Null
+
 ```
 value = null
 ```
-
-### Operators
-To calculate a complex expression in the proper order, each of the supported operators has its own precedence:
-
-| Operator               | Value     | Precedence | Example                      |
-|------------------------|-----------|------------|------------------------------|
-| Assignment             | ```=```   | 1          | ```a = 5```                  |
-| Append value to array  | ```<<```  | 1          | ```array << "value"```       |
-| Logical OR             | ```or```  | 2          | ```true or false```          |
-| Logical AND            | ```and``` | 3          | ```true and true```          |
-| Left Paren             | ```(```   | 4          |                              |
-| Right Paren            | ```)```   | 4          |                              |
-| Equals                 | ```==```  | 5          | ```a == 5```                 |
-| Not Equals             | ```!=```  | 5          | ```a != 5```                 |
-| Greater Than Or Equals | ```>=```  | 5          | ```a >= 5```                 |
-| Greater Than           | ```>```   | 5          | ```a > 5```                  |
-| Less Than Or Equals    | ```<=```  | 5          | ```a <= 5```                 |
-| Less Than              | ```<```   | 5          | ```a < 5```                  |
-| Addition               | ```+```   | 6          | ```a + 5```                  |
-| Subtraction            | ```-```   | 6          | ```a - 5```                  |
-| Multiplication         | ```*```   | 7          | ```a * 5```                  |
-| Division               | ```/```   | 7          | ```a / 5```                  |
-| Floor Division         | ```//```  | 7          | ```a // 5```                 |
-| Modulo                 | ```%```   | 7          | ```a % 5```                  |
-| NOT                    | ```!```   | 8          | ```!false```                 |
-| Class Instance         | ```new``` | 8          | ```a = new TreeNode [ 5 ]``` |
-| Class Property         | ```::```  | 8          | ```b = a :: value```         |
