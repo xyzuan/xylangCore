@@ -1,9 +1,9 @@
 a = 5
 
-kalo a == 1
-    spill "a adalah 1"
-perhaps a == 2
-    spill "a adalah 2"
-kalogak
-    spill "a adalah awokawok"
-udahan
+nek a == 1
+    ndelok "a adalah 1"
+nekngene a == 2
+    ndelok "a adalah 2"
+nekora
+    ndelok "a adalah awokawok"
+uwes

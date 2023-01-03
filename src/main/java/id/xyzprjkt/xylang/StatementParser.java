@@ -58,7 +58,7 @@ public class StatementParser {
         if (tokens.peek(TokenType.Operator, TokenType.Variable, TokenType.This))
             return true;
         if (tokens.peek(TokenType.Keyword)) {
-            return !tokens.peek(TokenType.Keyword, "perhaps", "kalogak", "udahan");
+            return !tokens.peek(TokenType.Keyword, "nekngene", "nekora", "uwes");
         }
         return false;
     }
@@ -88,25 +88,25 @@ public class StatementParser {
 
     private void parseKeywordStatement(Token token) {
         switch (token.getValue()) {
-            case "spill":
+            case "ndelok":
                 parsePrintStatement();
                 break;
-            case "input":
+            case "nginput":
                 parseInputStatement();
                 break;
-            case "kalo":
+            case "nek":
                 parseConditionStatement();
                 break;
             case "class":
                 parseClassDefinition();
                 break;
-            case "so":
+            case "guna":
                 parseFunctionDefinition();
                 break;
             case "return":
                 parseReturnStatement();
                 break;
-            case "fomo":
+            case "ngulang":
                 parseLoopStatement();
                 break;
             case "stop":
@@ -177,11 +177,11 @@ public class StatementParser {
         tokens.back();
         ConditionStatement conditionStatement = new ConditionStatement();
 
-        while (!tokens.peek(TokenType.Keyword, "udahan")) {
+        while (!tokens.peek(TokenType.Keyword, "uwes")) {
             //read condition case
-            Token type = tokens.next(TokenType.Keyword, "kalo", "perhaps", "kalogak");
+            Token type = tokens.next(TokenType.Keyword, "nek", "nekngene", "nekora");
             Expression caseCondition;
-            if (type.getValue().equals("kalogak")) {
+            if (type.getValue().equals("nekora")) {
                 caseCondition = new LogicalValue(true); //else case does not have the condition
             } else {
                 caseCondition = ExpressionReader.readExpression(tokens);
@@ -195,7 +195,7 @@ public class StatementParser {
             //add case
             conditionStatement.addCase(caseCondition, caseStatement);
         }
-        tokens.next(TokenType.Keyword, "udahan");
+        tokens.next(TokenType.Keyword, "uwes");
 
         compositeStatement.addStatement(conditionStatement);
     }
@@ -228,7 +228,7 @@ public class StatementParser {
 
         //parse class statements
         StatementParser.parse(this, classStatement, classScope);
-        tokens.next(TokenType.Keyword, "udahan");
+        tokens.next(TokenType.Keyword, "uwes");
     }
 
     private void parseFunctionDefinition() {
@@ -259,7 +259,7 @@ public class StatementParser {
 
         //parse function statements
         StatementParser.parse(this, functionStatement, functionScope);
-        tokens.next(TokenType.Keyword, "udahan");
+        tokens.next(TokenType.Keyword, "uwes");
     }
 
     private void parseReturnStatement() {
@@ -273,10 +273,10 @@ public class StatementParser {
         if (loopExpression instanceof OperatorExpression || loopExpression instanceof VariableExpression) {
             AbstractLoopStatement loopStatement;
 
-            if (loopExpression instanceof VariableExpression && tokens.peek(TokenType.Keyword, "in")) {
+            if (loopExpression instanceof VariableExpression && tokens.peek(TokenType.Keyword, "ing")) {
                 // loop <variable> in <bounds>
                 VariableExpression variable = (VariableExpression) loopExpression;
-                tokens.next(TokenType.Keyword, "in");
+                tokens.next(TokenType.Keyword, "ing");
                 Expression bounds = ExpressionReader.readExpression(tokens);
 
                 if (tokens.peek(TokenType.GroupDivider, "..")) {
@@ -307,7 +307,7 @@ public class StatementParser {
 
             DefinitionScope loopScope = DefinitionContext.newScope();
             StatementParser.parse(this, loopStatement, loopScope);
-            tokens.next(TokenType.Keyword, "udahan");
+            tokens.next(TokenType.Keyword, "uwes");
 
             compositeStatement.addStatement(loopStatement);
         }

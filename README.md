@@ -79,90 +79,90 @@ empty_array = {}
 2. Conditions
 
 ```
-kalo <condition>
+nek <condition>
     # Block Statement
-perhaps <condition>
+nekngene <condition>
     # Block Statement
-kalogak
+nekora
     # Block Statement
-udahan
+uwes
 
-kalo a > 5 and tree_node :: value == 3
+nek a > 5 and tree_node :: value == 3
     # Block Statement
-perhaps b == "hello" or c == "world"
+nekngene b == "hello" or c == "world"
     # Block Statement
-kalogak
+nekora
     # Block Statement
-udahan
+uwes
 ```
 
 3. Print to console
 
 ```
-spill <expression>
-spill a + b + tree_node :: value
+ndelok <expression>
+ndelok a + b + tree_node :: value
 ```
 
 4. Input from console
 
 ```
-input <variable name>
-input number
+nginput <variable name>
+nginput number
 ```
 
 5. Functions
 
 ```
-so <function name> [ <argument1, argument2>, ... ]
+guna <function name> [ <argument1, argument2>, ... ]
     <body>
     return <expression>
-udahan
+uwes
 
-so fibonacci_number [ n ]
-    kalo n < 2
+guna fibonacci_number [ n ]
+    nek n < 2
         return n
-    udahan
+    uwes
     return fibonacci_number [ n - 1 ] + fibonacci_number [ n - 2 ]
-udahan
+uwes
 ```
 
 6. Loops
 
 ```
 # For loop
-fomo <variable> in <lower_bound>..<upper_bound>
+ngulang <variable> ing <lower_bound>..<upper_bound>
     # statements
-udahan
+uwes
 
 # Specify the step
-fomo <variable> in <lower_bound>..<upper_bound> by <step>
+ngulang <variable> ing <lower_bound>..<upper_bound> karo <step>
     # statements
     # seed increment statement
-udahan
+uwes
 
 # While loop
-fomo <condition>
+ngulang <condition>
     # statements
-udahan
+uwes
 
 # Iterable loop (for-each)
-fomo <variable> in <iterable>
+ngulang <variable> ing <iterable>
     # statements
-udahan
+uwes
 
 # terminate the loop
-fomo <variable> in <lower_bound>..<upper_bound> by <step>
-    kalo <other_condition>
+ngulang <variable> ing <lower_bound>..<upper_bound> karo <step>
+    nek <other_condition>
         stop
-    udahan
-udahan
+    uwes
+uwes
 
 # jump to the next iteration
-fomo <variable> in <lower_bound>..<upper_bound> by <step>
-    kalo <other_condition>
+ngulang <variable> ing <lower_bound>..<upper_bound> karo <step>
+    nek <other_condition>
         skip
-    udahan
-udahan
+    uwes
+uwes
 ```
 
 ### Data types
@@ -198,27 +198,27 @@ logical2 = false
 ```
 class <class name> [ <property1>, <property2>, ...  ]
     # inner statements
-    spill <property1>
+    ndelok <property1>
 
-    so <function name> [ <property1>, <property2> ]
+    guna <function name> [ <property1>, <property2> ]
         # function statements
         this :: <property1> = <property1>
-    udahan
-udahan
+    uwes
+uwes
 
 class Lamp [ type, is_on ]
-    so turn_on []
+    guna turn_on []
         is_on = true
-    udahan
+    uwes
 
-    so turn_off []
+    guna turn_off []
         is_on = false
-    udahan
+    uwes
 
-    so set_is_on [ is_on ]
+    guna set_is_on [ is_on ]
         this :: is_on = is_on
-    udahan
-udahan
+    uwes
+uwes
 
 lamp_instance = new Lamp [ "Halogen", false ]
 
