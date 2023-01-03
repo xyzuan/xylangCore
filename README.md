@@ -1,6 +1,6 @@
-# xyLang
+## xylang Programming Language
 
-This is a xyLang Simple Programing Languages written in Java, xyLang uses .xy as the filename extentions.
+![about.png](asset%2Fabout.png)
 
 Based on: [Building Your Own Programming Language From Scratch](https://hackernoon.com/building-your-own-programming-language-from-scratch)
 
