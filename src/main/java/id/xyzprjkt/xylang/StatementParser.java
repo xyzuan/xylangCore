@@ -154,6 +154,7 @@ public class StatementParser {
                 break;
             case "version":
                 System.out.println("xyLang version 1.0-dev (xylang-1.0-dev-jar)");
+                System.out.println("https://github.com/xyzuan/xylangCore");
                 break;
             default:
                 throw new SyntaxException(String.format("Failed to parse a keyword: %s", token.getValue()));

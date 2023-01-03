@@ -87,7 +87,7 @@ public class xyEngine {
 
         System.out.println("");
         System.out.println("xylang rev1.0-dev (tags/main, Jan 3 2023, 00:04:04) [OpenJDK 19.0.1_10-21]");
-        System.out.println("Developed by xyzuan");
+        System.out.println("https://github.com/xyzuan/xylangCore");
         System.out.println("Type \"help\", \"credits\", or \"version\" for more information.");
         System.out.println("");
 

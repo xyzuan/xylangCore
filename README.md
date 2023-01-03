@@ -20,7 +20,7 @@ mvn compile
 To calculate a complex expression in the proper order, each of the supported operators has its own precedence:
 
 | Operator               | Value | Precedence | Example                  |
-| ---------------------- | ----- | ---------- | ------------------------ |
+|------------------------|-------|------------|--------------------------|
 | Assignment             | `=`   | 1          | `a = 5`                  |
 | Append value to array  | `<<`  | 1          | `array << "value"`       |
 | Logical OR             | `or`  | 2          | `true or false`          |
@@ -45,6 +45,7 @@ To calculate a complex expression in the proper order, each of the supported ope
 
 ### General Functions
 To show a general output :
+
 | Commands               | Function                                                      |
 | ---------------------- | ------------------------------------------------------------- |
 | help                   | Used to see documentation and usages                          |
@@ -59,7 +60,7 @@ To show a general output :
 <variable name> = <expression>
 
 a = 1
-b = "hello world"
+b = "Hemlo Indonesia"
 
 # Class instance
 <variable name> = new <class name> [ <argument expression 1>, <argument expression 2>, ... ]
@@ -78,28 +79,28 @@ empty_array = {}
 2. Conditions
 
 ```
-if <condition>
+kalo <condition>
     # Block Statement
-elif <condition>
+perhaps <condition>
     # Block Statement
-else
+kalogak
     # Block Statement
-end
+udahan
 
-if a > 5 and tree_node :: value == 3
+kalo a > 5 and tree_node :: value == 3
     # Block Statement
-elif b == "hello" or c == "world"
+perhaps b == "hello" or c == "world"
     # Block Statement
-else
+kalogak
     # Block Statement
-end
+udahan
 ```
 
 3. Print to console
 
 ```
-print <expression>
-print a + b + tree_node :: value
+spill <expression>
+spill a + b + tree_node :: value
 ```
 
 4. Input from console
@@ -112,56 +113,56 @@ input number
 5. Functions
 
 ```
-fun <function name> [ <argument1, argument2>, ... ]
+so <function name> [ <argument1, argument2>, ... ]
     <body>
     return <expression>
-end
+udahan
 
-fun fibonacci_number [ n ]
-    if n < 2
+so fibonacci_number [ n ]
+    kalo n < 2
         return n
-    end
+    udahan
     return fibonacci_number [ n - 1 ] + fibonacci_number [ n - 2 ]
-end
+udahan
 ```
 
 6. Loops
 
 ```
 # For loop
-loop <variable> in <lower_bound>..<upper_bound>
+fomo <variable> in <lower_bound>..<upper_bound>
     # statements
-end
+udahan
 
 # Specify the step
-loop <variable> in <lower_bound>..<upper_bound> by <step>
+fomo <variable> in <lower_bound>..<upper_bound> by <step>
     # statements
     # seed increment statement
-end
+udahan
 
 # While loop
-loop <condition>
+fomo <condition>
     # statements
-end
+udahan
 
 # Iterable loop (for-each)
-loop <variable> in <iterable>
+fomo <variable> in <iterable>
     # statements
-end
+udahan
 
 # terminate the loop
-loop <variable> in <lower_bound>..<upper_bound> by <step>
-    if <other_condition>
-        break
-    end
-end
+fomo <variable> in <lower_bound>..<upper_bound> by <step>
+    kalo <other_condition>
+        stop
+    udahan
+udahan
 
 # jump to the next iteration
-loop <variable> in <lower_bound>..<upper_bound> by <step>
-    if <other_condition>
-        next
-    end
-end
+fomo <variable> in <lower_bound>..<upper_bound> by <step>
+    kalo <other_condition>
+        skip
+    udahan
+udahan
 ```
 
 ### Data types
@@ -197,27 +198,27 @@ logical2 = false
 ```
 class <class name> [ <property1>, <property2>, ...  ]
     # inner statements
-    print <property1>
+    spill <property1>
 
-    fun <function name> [ <property1>, <property2> ]
+    so <function name> [ <property1>, <property2> ]
         # function statements
         this :: <property1> = <property1>
-    end
-end
+    udahan
+udahan
 
 class Lamp [ type, is_on ]
-    fun turn_on []
+    so turn_on []
         is_on = true
-    end
+    udahan
 
-    fun turn_off []
+    so turn_off []
         is_on = false
-    end
+    udahan
 
-    fun set_is_on [ is_on ]
+    so set_is_on [ is_on ]
         this :: is_on = is_on
-    end
-end
+    udahan
+udahan
 
 lamp_instance = new Lamp [ "Halogen", false ]
 
