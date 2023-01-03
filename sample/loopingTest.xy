@@ -1,28 +1,28 @@
-spill "= For loop =========="
-fomo i in 1..5
-    spill i
-udahan
+ndelok "= For loop =========="
+ngulang i ing 1..5
+    ndelok i
+uwes
 
-spill "= While loop ========"
+ndelok "= While loop ========"
 i = 1
-fomo i < 5
-    spill i
+ngulang i < 5
+    ndelok i
     i = i + 1
-udahan
+uwes
 
-spill "= Bubble Sort ======="
-so bubble_sort [arr, length]
-    fomo i in 0..length - 1
-        fomo j in 0..length - i - 1
-            kalo arr{j+1} < arr{j}
+ndelok "= Bubble Sort ======="
+guna bubble_sort [arr, length]
+    ngulang i ing 0..length - 1
+        ngulang j ing 0..length - i - 1
+            nek arr{j+1} < arr{j}
                 temp = arr{j}
                 arr{j} = arr{j + 1}
                 arr{j + 1} = temp
-            udahan
-       udahan
-    udahan
-udahan
+            uwes
+       uwes
+    uwes
+uwes
 
 arr = {2, 5, 6, 7, 19, 1, 2, 5, 8}
 bubble_sort[arr,9]
-spill arr
+ndelok arr

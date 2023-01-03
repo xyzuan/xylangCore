@@ -13,7 +13,7 @@ class LexicalParserTest {
 
     @Test
     public void testPrint() {
-        String source = "spill \"Hello World\"";
+        String source = "ndelok \"Hello World\"";
         LexicalParser parser = new LexicalParser(source);
         List<Token> tokens = parser.parse();
 
@@ -21,7 +21,7 @@ class LexicalParserTest {
 
         int count = 0;
         Assertions.assertEquals(TokenType.Keyword, tokens.get(count).getType());
-        assertEquals("spill", tokens.get(count).getValue());
+        assertEquals("ndelok", tokens.get(count).getValue());
         assertEquals(1, tokens.get(count).getRow());
 
         assertEquals(TokenType.Text, tokens.get(++count).getType());
@@ -32,7 +32,7 @@ class LexicalParserTest {
     @Test
     public void testInput() {
 
-        String source = "input a";
+        String source = "nginput a";
         LexicalParser parser = new LexicalParser(source);
         List<Token> tokens = parser.parse();
 
@@ -40,7 +40,7 @@ class LexicalParserTest {
 
         int count = 0;
         assertEquals(TokenType.Keyword, tokens.get(count).getType());
-        assertEquals("input", tokens.get(count).getValue());
+        assertEquals("nginput", tokens.get(count).getValue());
         assertEquals(1, tokens.get(count).getRow());
 
         assertEquals(TokenType.Variable, tokens.get(++count).getType());
@@ -82,13 +82,13 @@ class LexicalParserTest {
     @Test
     public void testCondition() {
 
-        String source = "kalo a > 5\n" +
-                        "    spill \"a is greater than 5\"\n" +
-                        "perhaps a >= 1\n" +
-                        "    spill \"a is greater than or equal to 1\"\n" +
-                        "kalogak\n" +
-                        "    spill \"a is less than 1\"\n" +
-                        "udahan";
+        String source = "nek a > 5\n" +
+                        "    ndelok \"a is greater than 5\"\n" +
+                        "nekngene a >= 1\n" +
+                        "    ndelok \"a is greater than or equal to 1\"\n" +
+                        "nekora\n" +
+                        "    ndelok \"a is less than 1\"\n" +
+                        "uwes";
         LexicalParser parser = new LexicalParser(source);
         List<Token> tokens = parser.parse();
 
@@ -96,7 +96,7 @@ class LexicalParserTest {
 
         int count = 0;
         assertEquals(TokenType.Keyword, tokens.get(count).getType());
-        assertEquals("kalo", tokens.get(count).getValue());
+        assertEquals("nek", tokens.get(count).getValue());
         assertEquals(1, tokens.get(count).getRow());
 
         assertEquals(TokenType.Variable, tokens.get(++count).getType());
@@ -116,7 +116,7 @@ class LexicalParserTest {
         assertEquals(1, tokens.get(count).getRow());
 
         assertEquals(TokenType.Keyword, tokens.get(++count).getType());
-        assertEquals("spill", tokens.get(count).getValue());
+        assertEquals("ndelok", tokens.get(count).getValue());
         assertEquals(2, tokens.get(count).getRow());
 
         assertEquals(TokenType.Text, tokens.get(++count).getType());
@@ -128,7 +128,7 @@ class LexicalParserTest {
         assertEquals(2, tokens.get(count).getRow());
 
         assertEquals(TokenType.Keyword, tokens.get(++count).getType());
-        assertEquals("perhaps", tokens.get(count).getValue());
+        assertEquals("nekngene", tokens.get(count).getValue());
         assertEquals(3, tokens.get(count).getRow());
 
         assertEquals(TokenType.Variable, tokens.get(++count).getType());
@@ -148,7 +148,7 @@ class LexicalParserTest {
         assertEquals(3, tokens.get(count).getRow());
 
         assertEquals(TokenType.Keyword, tokens.get(++count).getType());
-        assertEquals("spill", tokens.get(count).getValue());
+        assertEquals("ndelok", tokens.get(count).getValue());
         assertEquals(4, tokens.get(count).getRow());
 
         assertEquals(TokenType.Text, tokens.get(++count).getType());
@@ -160,7 +160,7 @@ class LexicalParserTest {
         assertEquals(4, tokens.get(count).getRow());
 
         assertEquals(TokenType.Keyword, tokens.get(++count).getType());
-        assertEquals("kalogak", tokens.get(count).getValue());
+        assertEquals("nekora", tokens.get(count).getValue());
         assertEquals(5, tokens.get(count).getRow());
 
         assertEquals(TokenType.LineBreak, tokens.get(++count).getType());
@@ -168,7 +168,7 @@ class LexicalParserTest {
         assertEquals(5, tokens.get(count).getRow());
 
         assertEquals(TokenType.Keyword, tokens.get(++count).getType());
-        assertEquals("spill", tokens.get(count).getValue());
+        assertEquals("ndelok", tokens.get(count).getValue());
         assertEquals(6, tokens.get(count).getRow());
 
         assertEquals(TokenType.Text, tokens.get(++count).getType());
@@ -180,7 +180,7 @@ class LexicalParserTest {
         assertEquals(6, tokens.get(count).getRow());
 
         assertEquals(TokenType.Keyword, tokens.get(++count).getType());
-        assertEquals("udahan", tokens.get(count).getValue());
+        assertEquals("uwes", tokens.get(count).getValue());
         assertEquals(7, tokens.get(count).getRow());
     }
 
@@ -188,9 +188,9 @@ class LexicalParserTest {
     public void testClass() {
 
         String source = "class Person [ name, age ]\n" +
-                        "udahan\n" +
+                        "uwes\n" +
                         "person = new Person[\"Randy Marsh\", 45]\n" +
-                        "spill person :: name + \" is \" + person :: age + \" years old\"";
+                        "ndelok person :: name + \" is \" + person :: age + \" years old\"";
         LexicalParser parser = new LexicalParser(source);
         List<Token> tokens = parser.parse();
 
@@ -230,7 +230,7 @@ class LexicalParserTest {
         assertEquals(1, tokens.get(count).getRow());
 
         assertEquals(TokenType.Keyword, tokens.get(++count).getType());
-        assertEquals("udahan", tokens.get(count).getValue());
+        assertEquals("uwes", tokens.get(count).getValue());
         assertEquals(2, tokens.get(count).getRow());
 
         assertEquals(TokenType.LineBreak, tokens.get(++count).getType());
@@ -278,7 +278,7 @@ class LexicalParserTest {
         assertEquals(3, tokens.get(count).getRow());
 
         assertEquals(TokenType.Keyword, tokens.get(++count).getType());
-        assertEquals("spill", tokens.get(count).getValue());
+        assertEquals("ndelok", tokens.get(count).getValue());
         assertEquals(4, tokens.get(count).getRow());
 
         assertEquals(TokenType.Variable, tokens.get(++count).getType());

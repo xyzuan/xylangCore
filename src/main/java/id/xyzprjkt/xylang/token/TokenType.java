@@ -9,7 +9,7 @@ public enum TokenType {
     Comment("\\#.*"),
     LineBreak("[\\n\\r]"),
     Whitespace("[\\s\\t]"),
-    Keyword("(kalo|perhaps|kalogak|udahan|spill|input|class|so|return|fomo|in|by|stop|skip|execute|help|version|credits)(?=\\s|$)"),
+    Keyword("(nek|nekngene|nekora|uwes|ndelok|nginput|class|guna|return|ngulang|ing|by|stop|skip|execute|help|version|credits)(?=\\s|$)"),
     GroupDivider("(\\[|\\]|\\,|\\{|}|[.]{2})"),
     Logical("(true|false)(?=\\s|$)"),
     Numeric("([-]?(?=[.]?[0-9])[0-9]*(?![.]{2})[.]?[0-9]*)"),

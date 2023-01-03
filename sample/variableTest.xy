@@ -3,20 +3,20 @@ r = 14
 
 luasLingkaran = phi * r * r
 
-spill "variabel ph: " + phi
-spill "variabel jari-jari: " + r
-spill "Luas lingkarannya adalah: " + luasLingkaran
+ndelok "variabel ph: " + phi
+ndelok "variabel jari-jari: " + r
+ndelok "Luas lingkarannya adalah: " + luasLingkaran
 
-spill " "
-spill "= Arrays ============="
+ndelok " "
+ndelok "= Arrays ============="
 arr = {"Jody", "Yuantoro"}
-spill arr
+ndelok arr
 
-spill " "
-spill "= Boolean Literation ="
+ndelok " "
+ndelok "= Boolean Literation ="
 a = 1
 b = 2
 boolA = a < b
 boolB = b < a
-spill a + " kurang dari " + b + " " + boolA
-spill b + " kurang dari " + a + " " + boolB
+ndelok a + " kurang dari " + b + " " + boolA
+ndelok b + " kurang dari " + a + " " + boolB

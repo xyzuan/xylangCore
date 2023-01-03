@@ -29,7 +29,7 @@ class StatementParserTest {
     @Test
     public void printTest() {
         List<Token> tokens = List.of(
-                Token.builder().type(TokenType.Keyword).value("spill").build(),
+                Token.builder().type(TokenType.Keyword).value("ndelok").build(),
                 Token.builder().type(TokenType.Text).value("Hello World").build()
         );
         DefinitionContext.pushScope(DefinitionContext.newScope());
@@ -55,7 +55,7 @@ class StatementParserTest {
     @Test
     public void testInput() {
         List<Token> tokens = List.of(
-                Token.builder().type(TokenType.Keyword).value("input").build(),
+                Token.builder().type(TokenType.Keyword).value("nginput").build(),
                 Token.builder().type(TokenType.Variable).value("a").build()
         );
         DefinitionContext.pushScope(DefinitionContext.newScope());
@@ -120,22 +120,22 @@ class StatementParserTest {
     @Test
     public void testCondition() {
         List<Token> tokens = List.of(
-                Token.builder().type(TokenType.Keyword).value("kalo").build(),
+                Token.builder().type(TokenType.Keyword).value("nek").build(),
                 Token.builder().type(TokenType.Variable).value("a").build(),
                 Token.builder().type(TokenType.Operator).value(">").build(),
                 Token.builder().type(TokenType.Numeric).value("5").build(),
-                Token.builder().type(TokenType.Keyword).value("spill").build(),
+                Token.builder().type(TokenType.Keyword).value("ndelok").build(),
                 Token.builder().type(TokenType.Text).value("a is greater than 5").build(),
-                Token.builder().type(TokenType.Keyword).value("perhaps").build(),
+                Token.builder().type(TokenType.Keyword).value("nekngene").build(),
                 Token.builder().type(TokenType.Variable).value("a").build(),
                 Token.builder().type(TokenType.Operator).value(">=").build(),
                 Token.builder().type(TokenType.Numeric).value("1").build(),
-                Token.builder().type(TokenType.Keyword).value("spill").build(),
+                Token.builder().type(TokenType.Keyword).value("ndelok").build(),
                 Token.builder().type(TokenType.Text).value("a is greater than or equal to 1").build(),
-                Token.builder().type(TokenType.Keyword).value("kalogak").build(),
-                Token.builder().type(TokenType.Keyword).value("spill").build(),
+                Token.builder().type(TokenType.Keyword).value("nekora").build(),
+                Token.builder().type(TokenType.Keyword).value("ndelok").build(),
                 Token.builder().type(TokenType.Text).value("a is less than 1").build(),
-                Token.builder().type(TokenType.Keyword).value("udahan").build()
+                Token.builder().type(TokenType.Keyword).value("uwes").build()
         );
         DefinitionContext.pushScope(DefinitionContext.newScope());
         MemoryContext.pushScope(MemoryContext.newScope());
@@ -226,7 +226,7 @@ class StatementParserTest {
                 Token.builder().type(TokenType.Variable).value("age").row(1).build(),
                 Token.builder().type(TokenType.GroupDivider).value("]").row(1).build(),
                 Token.builder().type(TokenType.LineBreak).value("\n").row(1).build(),
-                Token.builder().type(TokenType.Keyword).value("udahan").row(2).build(),
+                Token.builder().type(TokenType.Keyword).value("uwes").row(2).build(),
                 Token.builder().type(TokenType.LineBreak).value("\n").row(2).build(),
                 Token.builder().type(TokenType.Variable).value("person").row(3).build(),
                 Token.builder().type(TokenType.Operator).value("=").row(3).build(),
@@ -238,7 +238,7 @@ class StatementParserTest {
                 Token.builder().type(TokenType.Numeric).value("45").row(3).build(),
                 Token.builder().type(TokenType.GroupDivider).value("]").row(3).build(),
                 Token.builder().type(TokenType.LineBreak).value("\n").row(3).build(),
-                Token.builder().type(TokenType.Keyword).value("spill").row(4).build(),
+                Token.builder().type(TokenType.Keyword).value("ndelok").row(4).build(),
                 Token.builder().type(TokenType.Variable).value("person").row(4).build(),
                 Token.builder().type(TokenType.Operator).value("::").row(4).build(),
                 Token.builder().type(TokenType.Variable).value("name").row(4).build(),
