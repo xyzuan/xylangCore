@@ -1,28 +1,28 @@
-print "= For loop =========="
-loop i in 1..5
-    print i
-end
+spill "= For loop =========="
+fomo i in 1..5
+    spill i
+udahan
 
-print "= While loop ========"
+spill "= While loop ========"
 i = 1
-loop i < 5
-    print i
+fomo i < 5
+    spill i
     i = i + 1
-end
+udahan
 
-print "= Bubble Sort ======="
-fun bubble_sort [arr, length]
-    loop i in 0..length 1
-        loop j in 0..length - i - 1
-            if arr{j+1} < arr{j}
+spill "= Bubble Sort ======="
+so bubble_sort [arr, length]
+    fomo i in 0..length - 1
+        fomo j in 0..length - i - 1
+            kalo arr{j+1} < arr{j}
                 temp = arr{j}
                 arr{j} = arr{j + 1}
                 arr{j + 1} = temp
-            end
-       end
-    end
-end
+            udahan
+       udahan
+    udahan
+udahan
 
 arr = {2, 5, 6, 7, 19, 1, 2, 5, 8}
 bubble_sort[arr,9]
-print arr
+spill arr

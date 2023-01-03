@@ -1,25 +1,25 @@
 a = 5
 b = 7
 
-print "= Penjumlahan ==============="
-print a + " ditambah " + b + " = " + (a + b)
+spill "= Penjumlahan ==============="
+spill a + " ditambah " + b + " = " + (a + b)
 
-print " "
-print "= Pengurangan ==============="
-print a + " dikurangi " + b + " = " + (a - b)
+spill " "
+spill "= Pengurangan ==============="
+spill a + " dikurangi " + b + " = " + (a - b)
 
-print " "
-print "= Perkalian ================="
-print a + " dikali " + b + " = " + (a * b)
+spill " "
+spill "= Perkalian ================="
+spill a + " dikali " + b + " = " + (a * b)
 
-print " "
-print "= Pembagian ================="
-print a + " dibagi " + b + " = " + (a / b)
+spill " "
+spill "= Pembagian ================="
+spill a + " dibagi " + b + " = " + (a / b)
 
-print " "
-print "= Modulus ==================="
-print a + " modulus " + b + " = " + (a % b)
+spill " "
+spill "= Modulus ==================="
+spill a + " modulus " + b + " = " + (a % b)
 
-print " "
-print "= Perkalian dan dikurangi ==="
-print a + " dikali " + b + " dikurangi " + a + " = " + (a * b - a)
+spill " "
+spill "= Perkalian dan dikurangi ==="
+spill a + " dikali " + b + " dikurangi " + a + " = " + (a * b - a)

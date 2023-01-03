@@ -15,7 +15,6 @@ import id.xyzprjkt.xylang.statement.loop.*;
 import id.xyzprjkt.xylang.token.Token;
 import id.xyzprjkt.xylang.token.TokenType;
 import id.xyzprjkt.xylang.token.TokensStack;
-import id.xyzprjkt.xylang.xyEngine;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -59,7 +58,7 @@ public class StatementParser {
         if (tokens.peek(TokenType.Operator, TokenType.Variable, TokenType.This))
             return true;
         if (tokens.peek(TokenType.Keyword)) {
-            return !tokens.peek(TokenType.Keyword, "elif", "else", "end");
+            return !tokens.peek(TokenType.Keyword, "perhaps", "kalogak", "udahan");
         }
         return false;
     }
@@ -89,31 +88,31 @@ public class StatementParser {
 
     private void parseKeywordStatement(Token token) {
         switch (token.getValue()) {
-            case "print":
+            case "spill":
                 parsePrintStatement();
                 break;
             case "input":
                 parseInputStatement();
                 break;
-            case "if":
+            case "kalo":
                 parseConditionStatement();
                 break;
             case "class":
                 parseClassDefinition();
                 break;
-            case "fun":
+            case "so":
                 parseFunctionDefinition();
                 break;
             case "return":
                 parseReturnStatement();
                 break;
-            case "loop":
+            case "fomo":
                 parseLoopStatement();
                 break;
-            case "break":
+            case "stop":
                 parseBreakStatement();
                 break;
-            case "next":
+            case "skip":
                 parseNextStatement();
                 break;
             case "execute":
@@ -129,7 +128,29 @@ public class StatementParser {
                 System.out.println("- help: Are used to see documentation usage");
                 System.out.println("- version: To see xyzlang version which installed on this machine");
                 System.out.println("= Operation ===============");
-                System.out.println("- ");
+                System.out.println(" ");
+                System.out.println("| Operator               | Value | Precedence | Example                  |\n" +
+                        "| Assignment             | `=`   | 1          | `a = 5`                  |\n" +
+                        "| Append value to array  | `<<`  | 1          | `array << \"value\"`       |\n" +
+                        "| Logical OR             | `or`  | 2          | `true or false`          |\n" +
+                        "| Logical AND            | `and` | 3          | `true and true`          |\n" +
+                        "| Left Paren             | `(`   | 4          |                          |\n" +
+                        "| Right Paren            | `)`   | 4          |                          |\n" +
+                        "| Equals                 | `==`  | 5          | `a == 5`                 |\n" +
+                        "| Not Equals             | `!=`  | 5          | `a != 5`                 |\n" +
+                        "| Greater Than Or Equals | `>=`  | 5          | `a >= 5`                 |\n" +
+                        "| Greater Than           | `>`   | 5          | `a > 5`                  |\n" +
+                        "| Less Than Or Equals    | `<=`  | 5          | `a <= 5`                 |\n" +
+                        "| Less Than              | `<`   | 5          | `a < 5`                  |\n" +
+                        "| Addition               | `+`   | 6          | `a + 5`                  |\n" +
+                        "| Subtraction            | `-`   | 6          | `a - 5`                  |\n" +
+                        "| Multiplication         | `*`   | 7          | `a * 5`                  |\n" +
+                        "| Division               | `/`   | 7          | `a / 5`                  |\n" +
+                        "| Floor Division         | `//`  | 7          | `a // 5`                 |\n" +
+                        "| Modulo                 | `%`   | 7          | `a % 5`                  |\n" +
+                        "| NOT                    | `!`   | 8          | `!false`                 |\n" +
+                        "| Class Instance         | `new` | 8          | `a = new TreeNode [ 5 ]` |\n" +
+                        "| Class Property         | `::`  | 8          | `b = a :: value`         |");
                 break;
             case "version":
                 System.out.println("xyLang version 1.0-dev (xylang-1.0-dev-jar)");
@@ -155,11 +176,11 @@ public class StatementParser {
         tokens.back();
         ConditionStatement conditionStatement = new ConditionStatement();
 
-        while (!tokens.peek(TokenType.Keyword, "end")) {
+        while (!tokens.peek(TokenType.Keyword, "udahan")) {
             //read condition case
-            Token type = tokens.next(TokenType.Keyword, "if", "elif", "else");
+            Token type = tokens.next(TokenType.Keyword, "kalo", "perhaps", "kalogak");
             Expression caseCondition;
-            if (type.getValue().equals("else")) {
+            if (type.getValue().equals("kalogak")) {
                 caseCondition = new LogicalValue(true); //else case does not have the condition
             } else {
                 caseCondition = ExpressionReader.readExpression(tokens);
@@ -173,7 +194,7 @@ public class StatementParser {
             //add case
             conditionStatement.addCase(caseCondition, caseStatement);
         }
-        tokens.next(TokenType.Keyword, "end");
+        tokens.next(TokenType.Keyword, "udahan");
 
         compositeStatement.addStatement(conditionStatement);
     }
@@ -206,7 +227,7 @@ public class StatementParser {
 
         //parse class statements
         StatementParser.parse(this, classStatement, classScope);
-        tokens.next(TokenType.Keyword, "end");
+        tokens.next(TokenType.Keyword, "udahan");
     }
 
     private void parseFunctionDefinition() {
@@ -237,7 +258,7 @@ public class StatementParser {
 
         //parse function statements
         StatementParser.parse(this, functionStatement, functionScope);
-        tokens.next(TokenType.Keyword, "end");
+        tokens.next(TokenType.Keyword, "udahan");
     }
 
     private void parseReturnStatement() {
@@ -285,7 +306,7 @@ public class StatementParser {
 
             DefinitionScope loopScope = DefinitionContext.newScope();
             StatementParser.parse(this, loopStatement, loopScope);
-            tokens.next(TokenType.Keyword, "end");
+            tokens.next(TokenType.Keyword, "udahan");
 
             compositeStatement.addStatement(loopStatement);
         }

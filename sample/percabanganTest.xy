@@ -1,9 +1,9 @@
-a = 1
+a = 5
 
-if a == 1
-    print "a adalah 1"
-elif a == 2
-    print "a adalah 2"
-else
-    print "a adalah awokawok"
-end
+kalo a == 1
+    spill "a adalah 1"
+perhaps a == 2
+    spill "a adalah 2"
+kalogak
+    spill "a adalah awokawok"
+udahan
