@@ -120,7 +120,7 @@ public class StatementParser {
                 engine.execute(Path.of(input.nextLine()));
                 break;
             case "credits":
-                System.out.println("Thanks to alexandermakeev for amazing base code for this project. See https://hackernoon.com/building-your-own-programming-language-from-scratch for more information");
+                System.out.println("Thanks to alexandermakeev for amazing base code for this project,\nThanks to Rio Chandra about Jaksel Languages which inspire this project.\nSee https://hackernoon.com/building-your-own-programming-language-from-scratch for more information");
                 break;
             case "help":
                 System.out.println("Documentation [WIP]");
