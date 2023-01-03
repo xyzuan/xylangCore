@@ -24,6 +24,8 @@ public class xyEngine {
     public static final String YELLOW_UNDERLINED = "\033[4;93m";
     public static final String WHITE_BOLD = "\033[1;97m";
 
+    static xyEngine main = new xyEngine();
+
     @SneakyThrows
     public void execute() {
 
@@ -91,12 +93,11 @@ public class xyEngine {
         System.out.println("Type \"help\", \"credits\", or \"version\" for more information.");
         System.out.println("");
 
-        xyEngine main = new xyEngine();
         if (args.length == 0) {
             System.out.println(YELLOW_UNDERLINED + "Realtime mode are under development" + RESET);
             main.execute();
         } else {
-            main.execute(Path.of(args[0]));
+            main.execute(Path.of(Path.of("").toAbsolutePath() + args[0]));
         }
     }
 }
