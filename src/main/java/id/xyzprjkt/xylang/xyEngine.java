@@ -97,7 +97,7 @@ public class xyEngine {
             System.out.println(YELLOW_UNDERLINED + "Realtime mode are under development" + RESET);
             main.execute();
         } else {
-            main.execute(Path.of(Path.of("").toAbsolutePath() + args[0]));
+            main.execute(Path.of(Path.of("").toAbsolutePath() + "\"" + args[0]));
         }
     }
 }
