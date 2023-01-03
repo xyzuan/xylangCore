@@ -153,7 +153,7 @@ public class StatementParser {
                         "| Class Property         | `::`  | 8          | `b = a :: value`         |");
                 break;
             case "version":
-                System.out.println("xylang rev1.5-dev (tags/main, Jan 3 2023, 12:58:24) [OpenJDK 19.0.1_10-21]");
+                System.out.println("xylang rev1.6 (tags/main, Jan 3 2023, 17:51:33) [OpenJDK 19.0.1_10-21]");
                 System.out.println("https://github.com/xyzuan/xylangCore");
                 break;
             default:
