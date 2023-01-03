@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="aritmathicsTest" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="id.xyzprjkt.xylang.xyEngine" />
+    <module name="xylang" />
+    <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/sample/aritmatikaTest.xy" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
