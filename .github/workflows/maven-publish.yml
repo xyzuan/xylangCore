@@ -22,11 +22,15 @@ jobs:
 
     - name: Build and test project
       run: mvn -B package --file pom.xml
-      
+    
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+    
     - name: Upload xylang Release
       uses: ncipollo/release-action@v1.8.6
       with:
           artifacts: /home/runner/work/xylangCore/xylangCore/target/xylang*.jar
-          name: "xyLang Release"
-          tag: "xyLang-ci"
+          name: "xylang Release ${{ steps.date.outputs.date }}"
+          tag: "xylang-ci-${{ steps.date.outputs.date }}"
           token: ${{ secrets.GITHUB_TOKEN }}
