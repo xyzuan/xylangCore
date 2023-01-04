@@ -2,6 +2,8 @@
 
 ![about.png](asset%2Fabout.png)
 
+[![xylang Maven Build](https://github.com/xyzuan/xylangCore/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/xyzuan/xylangCore/actions/workflows/maven-publish.yml)
+
 Based on: [Building Your Own Programming Language From Scratch](https://hackernoon.com/building-your-own-programming-language-from-scratch)
 
 ### [Examples .xy Codes](sample)
