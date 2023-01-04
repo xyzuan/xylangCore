@@ -15,6 +15,8 @@ import java.util.Scanner;
 
 public class xyEngine {
 
+    private static final String fullVer = "xylang rev1.6 (tags/main, Jan 4 2023, 10:38:33) [OpenJDK 19.0.1_10-21]";
+
     /**
      * ANSI Color Term
      */
@@ -25,6 +27,10 @@ public class xyEngine {
     public static final String WHITE_BOLD = "\033[1;97m";
 
     static xyEngine main = new xyEngine();
+
+    public static String getFullVer() {
+        return fullVer;
+    }
 
     @SneakyThrows
     public void execute() {
@@ -88,7 +94,7 @@ public class xyEngine {
         System.out.flush();
 
         System.out.println("");
-        System.out.println("xylang rev1.6 (tags/main, Jan 3 2023, 17:51:33) [OpenJDK 19.0.1_10-21]");
+        System.out.println(getFullVer());
         System.out.println("https://github.com/xyzuan/xylangCore");
         System.out.println("Type \"help\", \"credits\", or \"version\" for more information.");
         System.out.println("");
