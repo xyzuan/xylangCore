@@ -1,0 +1,24 @@
+class Lamp [ type, is_on ]
+    guna turn_on []
+        is_on = true
+    uwes
+
+    guna turn_off []
+        is_on = false
+    uwes
+
+    guna set_is_on [ is_on ]
+        this :: is_on = is_on
+    uwes
+uwes
+
+lamp_instance = new Lamp [ "Halogen", false ]
+
+# get/set class's property
+lamp_is_on = lamp_instance :: is_on
+lamp_instance :: type = "Led"
+
+# invoke class's function
+lamp_instance :: turn_off []
+
+ndelok lamp_instance

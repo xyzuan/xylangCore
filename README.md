@@ -64,17 +64,9 @@ To show a general output :
 a = 1
 b = "Hemlo Indonesia"
 
-# Class instance
-<variable name> = new <class name> [ <argument expression 1>, <argument expression 2>, ... ]
-
-left_tree_node = new TreeNode [ 1 ]
-right_tree_node = new TreeNode [ 2 ]
-tree_node = new TreeNode [ 3, left_tree_node, right_tree_node ]
-tree_node = new TreeNode [ 3, new TreeNode [ 1 ], null ]
-
 # Arrays
 <array> = { <value1>, <value2>, ... }
-example_array = { 1, 2, "three", new TreeNode [ 4 ] }
+example_array = { 1, 2, "aku" }
 empty_array = {}
 ```
 
@@ -102,7 +94,7 @@ uwes
 
 ```
 ndelok <expression>
-ndelok a + b + tree_node :: value
+ndelok a + b + c
 ```
 
 4. Input from console
